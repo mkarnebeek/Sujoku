@@ -14,7 +14,10 @@ public class SudokuSolver {
 	}
 
 	public String findSolution() throws OutOfRangeException {
-		return this.grid.getPossibleValues(new Location(0,1)).toString();
+		//for (Slot slot: this.grid.getEmptySlots()) {
+		//	slot.possibleValues = 
+		//}
+		return this.grid.getSlot(new Location(0,1)).getPossibleValues().toString();
 	}
 	
 }

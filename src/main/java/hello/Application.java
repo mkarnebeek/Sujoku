@@ -14,9 +14,9 @@ public class Application {
     	System.out.println("Started");
 		SudokuSolver suko = new SudokuSolver();
 		Grid grid = new Grid();
-		grid.setSlot(new Slot(1, 1, 5));
-		grid.setSlot(new Slot(2, 1, 6));
-		grid.setSlot(new Slot(3, 2, 7));
+		grid.getSlot(new Location(1, 1)).value = 5;
+		grid.getSlot(new Location(2, 1)).value = 6;
+		grid.getSlot(new Location(3, 1)).value = 7;
 		suko.setGrid(grid);
 		System.out.println(suko.findSolution());
     }
