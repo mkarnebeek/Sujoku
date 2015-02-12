@@ -6,7 +6,6 @@ import java.util.TreeSet;
 public class Slot extends Location {
 
 	public Integer value;
-	public Set<Integer> possibleValues;
 	
 	public Slot(Location location) {
 		super(location.x, location.y);

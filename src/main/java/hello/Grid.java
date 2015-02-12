@@ -18,7 +18,13 @@ public class Grid {
 	}
 	
 	public String toString() {
-		// TODO Auto-generated method stub
+		// TODO: Use getSlots and its .value and getPossibleValues() to generate a grid
+		for (GridSlot slot: this.getSlots()) {try {
+			slot.getPossibleValues();
+		} catch (OutOfRangeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
 		return "Not implemented yet";
 	}
 
@@ -36,10 +42,18 @@ public class Grid {
 		return locations;
 	}
 	
-	public Set<Slot> getEmptySlots() {
-		Set<Slot> emptySlots = new TreeSet<Slot>();
+	private Set<GridSlot> getSlots() {
+		Set<GridSlot> slots = new TreeSet<GridSlot>();
+		for (Location location: this.getLocations()) {
+			slots.add(this.getSlot(location));
+		}
+		return slots;
+	}
+	
+	public Set<GridSlot> getEmptySlots() {
+		Set<GridSlot> emptySlots = new TreeSet<GridSlot>();
 		for (Location location : this.getLocations()) {
-			Slot slot = this.getSlot(location);
+			GridSlot slot = this.getSlot(location);
 			if (slot.value == null) {
 				emptySlots.add(slot);
 			}
