@@ -17,8 +17,8 @@ public class Grid {
 	}
 
 	public Slot getSlot(Location location) {
-		x = location.x;
-		y = location.y;
+		Integer x = location.x;
+		Integer y = location.y;
 		Integer value = this.field[x][y];
 		return new Slot(x, y, value);
 	}
@@ -33,8 +33,8 @@ public class Grid {
 	
 	public Set<Integer> getImpossibleValues(Location location) throws OutOfRangeException {
 		Set<Integer> impossibleValues = new TreeSet<Integer>();
-		impossibleValues.addAll(this.getValuesX(location));
-		impossibleValues.addAll(this.getValuesY(location));
+		impossibleValues.addAll(this.getOtherValuesOnX(location));
+		impossibleValues.addAll(this.getOtherValuesOnY(location));
 		impossibleValues.addAll(this.getValuesBlock(location));
 		return impossibleValues;
 	}
@@ -52,7 +52,7 @@ public class Grid {
 		return values;
 	}
 	
-	public Set<Integer> getValuesY(Location location) {
+	public Set<Integer> getOtherValuesOnY(Location location) {
 		Set<Integer> values = new TreeSet<Integer>();
 		for (int x = 0; x < this.x; x=x+1) {
 			if (x == location.x) {
@@ -60,14 +60,14 @@ public class Grid {
 			}
 			Slot slot = this.getSlot(new Location(x, location.y));
 			if (slot.value == null) {
-				//continue;
+				continue;
 			}
 			values.add(slot.value);
 		}
 		return values;
 	}
 	
-	public Set<Integer> getValuesX(Location location) {
+	public Set<Integer> getOtherValuesOnX(Location location) {
 		Set<Integer> values = new TreeSet<Integer>();
 		for (int y = 0; y < this.y; y=y+1) {
 			if (y == location.y) {
@@ -75,7 +75,7 @@ public class Grid {
 			}
 			Slot slot = this.getSlot(new Location(location.x, y));
 			if (slot.value == null) {
-				//continue;
+				continue;
 			}
 			values.add(slot.value);
 		}

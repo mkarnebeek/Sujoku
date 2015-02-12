@@ -16,7 +16,7 @@ public class Application {
 		Grid grid = new Grid();
 		grid.setSlot(new Slot(1, 1, 5));
 		grid.setSlot(new Slot(2, 1, 6));
-		grid.setSlot(new Slot(3, 1, 7));
+		grid.setSlot(new Slot(3, 2, 7));
 		suko.setGrid(grid);
 		System.out.println(suko.findSolution());
     }
