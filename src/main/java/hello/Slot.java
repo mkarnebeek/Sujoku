@@ -16,6 +16,13 @@ public class Slot extends Location {
 		this.value = value;
 	}
 	
+	@Override
+	public String toString() {
+		return "Slot [" + (value != null ? "value=" + value + ", " : "")
+				+ (x != null ? "x=" + x + ", " : "")
+				+ (y != null ? "y=" + y : "") + "]";
+	}
+
 	protected Set<Integer> getValues(Set<Slot> slots) {
 		Set<Integer> values = new TreeSet<Integer>();
 		for (Slot slot: slots) {

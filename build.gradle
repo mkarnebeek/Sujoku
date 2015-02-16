@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    //compile("org.kie.modules:org-apache-commons-lang3:6.2.0.CR4")
     testCompile("junit:junit")
 }
 

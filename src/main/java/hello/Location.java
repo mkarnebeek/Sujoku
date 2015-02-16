@@ -2,14 +2,20 @@ package hello;
 
 public class Location implements Comparable<Location> {
 
-	public int x;
-	public int y;
+	public Integer x;
+	public Integer y;
 	
 	public Location(Integer x, Integer y) {
 		this.x = x;
 		this.y = y;
 	}
 	
+	@Override
+	public String toString() {
+		return "Location [" + (x != null ? "x=" + x + ", " : "")
+				+ (y != null ? "y=" + y : "") + "]";
+	}
+
 	public Block getBlock() throws OutOfRangeException {
 		Integer xstart;
 		Integer xend;

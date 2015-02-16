@@ -17,15 +17,26 @@ public class Grid {
 		}
 	}
 	
+	private String stringRepeat(String string, Integer n) {
+		return new String(new char[n]).replace("\0", string);
+	}
+	
 	public String toString() {
 		// TODO: Use getSlots and its .value and getPossibleValues() to generate a grid
-		for (GridSlot slot: this.getSlots()) {try {
-			slot.getPossibleValues();
-		} catch (OutOfRangeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}}
-		return "Not implemented yet";
+		String output = "";
+		Integer lastRow = 0;
+		output += this.stringRepeat("+---------", this.x)+"+\n";
+		for (GridSlot slot: this.getSlots()) {
+			if (lastRow != slot.x) {
+				lastRow = slot.x;
+				output += this.stringRepeat("+---------", this.x)+"+\n";
+			}
+			//for (Integer value: slot.getPossibleValues()) {
+			//	
+			//}
+		}
+		output += this.stringRepeat("+---------", this.x)+"+\n";
+		return output;
 	}
 
 	public GridSlot getSlot(Location location) {
